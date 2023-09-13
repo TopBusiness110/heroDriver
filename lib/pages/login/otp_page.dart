@@ -75,13 +75,13 @@ class _OtpState extends State<Otp> {
             (route) => false);
       }
     } else if (verify == false) {
-      if (ischeckownerordriver == 'driver') {
+      // if (ischeckownerordriver == 'driver') {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const GetStarted()));
-      } else if (ischeckownerordriver == 'owner') {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const OwnersRegister()));
-      }
+      // } else if (ischeckownerordriver == 'owner') {
+      //   Navigator.pushReplacement(context,
+      //       MaterialPageRoute(builder: (context) => const OwnersRegister()));
+      // }
     } else {
       _error = verify.toString();
       setState(() {

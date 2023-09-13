@@ -149,7 +149,8 @@ class _VehicleColorState extends State<VehicleColor> {
                                       uploadError = reg.toString();
                                     });
                                   }
-                                } else if (userDetails['role'] == 'owner') {
+                                }
+                                else if (userDetails['role'] == 'owner') {
                                   var reg = await addDriver();
                                   setState(() {
                                     _isLoading = false;
@@ -198,7 +199,8 @@ class _VehicleColorState extends State<VehicleColor> {
                                       uploadError = reg.toString();
                                     });
                                   }
-                                } else {
+                                }
+                                else {
                                   var update = await updateVehicle();
                                   if (update == 'success') {
                                     navigateMap();

@@ -234,7 +234,7 @@ class _LoadingPageState extends State<LoadingPage> {
                         SizedBox(
                           height: media.height * 0.31,
                           child: Image.asset(
-                            'assets/images/allow_location_permission.png',
+                            'assets/images/logo.png',
                             fit: BoxFit.contain,
                           ),
                         ),

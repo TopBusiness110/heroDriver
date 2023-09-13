@@ -459,12 +459,13 @@ getServiceLocation() async {
     final response = await http.get(
       Uri.parse('${url}api/v1/servicelocation'),
     );
-
+    print(";;;;");
+print(response.body);
     if (response.statusCode == 200) {
       serviceLocations = jsonDecode(response.body)['data'];
       res = 'success';
     } else {
-      debugPrint(response.body);
+      debugPrint("ssss"+response.body);
     }
   } catch (e) {
     if (e is SocketException) {
@@ -559,6 +560,7 @@ getVehicleModel() async {
 List<BearerClass> bearerToken = <BearerClass>[];
 
 registerDriver() async {
+  print("jjj");
   bearerToken.clear();
   dynamic result;
   try {
@@ -590,7 +592,8 @@ registerDriver() async {
     });
     var request = await response.send();
     var respon = await http.Response.fromStream(request);
-
+print("res");
+print(request.statusCode);
     if (request.statusCode == 200) {
       var jsonVal = jsonDecode(respon.body);
       if (ischeckownerordriver == 'driver' &&
@@ -602,15 +605,15 @@ registerDriver() async {
           token: jsonVal['access_token'].toString()));
       pref.setString('Bearer', bearerToken[0].token);
       await getUserDetails();
-      if (platform == Platform.isAndroid && package != null) {
-        await FirebaseDatabase.instance
-            .ref()
-            .update({'driver_package_name': package.packageName.toString()});
-      } else if (package != null) {
-        await FirebaseDatabase.instance
-            .ref()
-            .update({'driver_bundle_id': package.packageName.toString()});
-      }
+      // if (platform == Platform.isAndroid && package != null) {
+      //   await FirebaseDatabase.instance
+      //       .ref()
+      //       .update({'driver_package_name': package.packageName.toString()});
+      // } else if (package != null) {
+      //   await FirebaseDatabase.instance
+      //       .ref()
+      //       .update({'driver_bundle_id': package.packageName.toString()});
+      // }
       result = 'true';
     } else if (respon.statusCode == 422) {
       debugPrint(respon.body);
@@ -621,7 +624,7 @@ registerDriver() async {
           .replaceAll(']', '')
           .toString();
     } else {
-      debugPrint(respon.body);
+     print(respon.body);
       result = jsonDecode(respon.body)['message'];
     }
   } catch (e) {
@@ -1039,6 +1042,8 @@ getDocumentsNeeded() async {
       'Authorization': 'Bearer ${bearerToken[0].token}',
       'Content-Type': 'application/json'
     });
+    print(";;;;;");
+    print(response.body);
     if (response.statusCode == 200) {
       documentsNeeded = jsonDecode(response.body)['data'];
       enableDocumentSubmit = jsonDecode(response.body)['enable_submit_button'];
@@ -1217,11 +1222,13 @@ getUserDetails() async {
         'Authorization': 'Bearer ${bearerToken[0].token}'
       },
     );
+    print("llll");
+    print(response.body);
     if (response.statusCode == 200) {
       userDetails = jsonDecode(response.body)['data'];
       if (userDetails['notifications_count'] != 0 &&
           userDetails['notifications_count'] != null) {
-        valueNotifierNotification.incrementNotifier();
+       // valueNotifierNotification.incrementNotifier();
       }
       if (userDetails['role'] != 'owner') {
         if (userDetails['sos']['data'] != null) {
@@ -1240,19 +1247,19 @@ getUserDetails() async {
               driverReq['is_trip_start'] == 0 &&
               arrivedTimer == null &&
               driverReq['is_rental'] != true) {
-            waitingBeforeStart();
+            //waitingBeforeStart();
           }
           if (driverReq['is_completed'] == 0 &&
               driverReq['is_trip_start'] == 1 &&
               rideTimer == null &&
               driverReq['is_rental'] != true) {
-            waitingAfterStart();
+         //   waitingAfterStart();
           }
 
           if (driverReq['accepted_at'] != null) {
             getCurrentMessages();
           }
-          valueNotifierHome.incrementNotifier();
+          //valueNotifierHome.incrementNotifier();
         } else if (userDetails['metaRequest'] != null) {
           driverReject = false;
           userReject = false;
@@ -1269,7 +1276,7 @@ getUserDetails() async {
           }
           streamEnd(driverReq['id']);
 
-          valueNotifierHome.incrementNotifier();
+     //     valueNotifierHome.incrementNotifier();
         } else {
           duration = 0;
           if (driverReq.isNotEmpty) {
@@ -1277,7 +1284,7 @@ getUserDetails() async {
           }
           chatList.clear();
           driverReq = {};
-          valueNotifierHome.incrementNotifier();
+        //  valueNotifierHome.incrementNotifier();
         }
 
         if (userDetails['active'] == false) {
@@ -2555,7 +2562,7 @@ getCurrentMessages() async {
           audioPlayer.load(audio);
         }
         chatList = jsonDecode(response.body)['data'];
-        valueNotifierHome.incrementNotifier();
+    //    valueNotifierHome.incrementNotifier();
       }
       result = 'success';
     } else if (response.statusCode == 401) {
