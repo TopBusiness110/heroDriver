@@ -2465,7 +2465,8 @@ class _MapsState extends State<Maps>
                                                                 (driverReq
                                                                         .isNotEmpty)
                                                                     ? (driverReq['accepted_at'] ==
-                                                                            null)
+                                                                            null&&driverReq['cancelled_at'] ==
+                                                                    null)
                                                                         ? Column(
                                                                             children: [
                                                                               (driverReq['is_later'] == 1 && driverReq['is_rental'] != true)
@@ -3184,9 +3185,25 @@ class _MapsState extends State<Maps>
                                                                                 }
                                                                               } else if (driverReq['is_driver_arrived'] == 1 && driverReq['is_trip_start'] == 0) {
                                                                                 if (driverReq['show_otp_feature'] == true) {
-                                                                                  setState(() {
-                                                                                    getStartOtp = true;
-                                                                                  });
+                                                                                  var val =
+                                                                                  await tripStart();
+                                                                                  if (val == 'logout') {
+                                                                                    navigateLogout();
+                                                                                  } else if (val !=
+                                                                                      'success') {
+                                                                                    setState(() {
+                                                                                      _errorOtp = true;
+                                                                                      _isLoading = false;
+                                                                                    });
+                                                                                  } else {
+                                                                                    setState(() {
+                                                                                      _isLoading = false;
+                                                                                      getStartOtp = false;
+                                                                                    });
+                                                                                  }
+                                                                                  // setState(() {
+                                                                                  //   getStartOtp = true;
+                                                                                  // });
                                                                                 } else {
                                                                                   var val = await tripStartDispatcher();
                                                                                   if (val == 'logout') {
@@ -4802,7 +4819,7 @@ class _MapsState extends State<Maps>
                                       children: [
                                         Container(
                                           width: media.width * 0.5,
-                                          height: media.width * 0.12,
+                                          height: media.width * 0.25,
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(10),

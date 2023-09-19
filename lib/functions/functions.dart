@@ -57,8 +57,8 @@ String ischeckownerordriver = '';
 //base url
 String url =
     'https://tagxi.topbusiness.io/'; //add '/' at the end of the url as 'https://yourwebsite.com/'
-String mapkey = 'AIzaSyA6QI378BHt9eqBbiJKtqWHTSAZxcSwN3Q';
-String mapStyle = 'AIzaSyA6QI378BHt9eqBbiJKtqWHTSAZxcSwN3Q';
+String mapkey = 'AIzaSyCZjDPvxg9h3IUSfVPzIwnKli5Y17p-v9g';
+String mapStyle = 'AIzaSyCZjDPvxg9h3IUSfVPzIwnKli5Y17p-v9g';
 
 getDetailsOfDevice() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
@@ -331,7 +331,7 @@ getCountryCode() async {
   dynamic result;
   try {
     final response = await http.get(Uri.parse('${url}api/v1/countries'));
-
+print(response.body);
     if (response.statusCode == 200) {
       countries = jsonDecode(response.body)['data'];
       phcode =
@@ -1223,7 +1223,8 @@ getUserDetails() async {
       },
     );
     print("llll");
-    print(response.body);
+    print(bearerToken[0].token);
+    print(response.body.toString());
     if (response.statusCode == 200) {
       userDetails = jsonDecode(response.body)['data'];
       if (userDetails['notifications_count'] != 0 &&
@@ -1711,7 +1712,7 @@ etaRequest() async {
               addressList.firstWhere((e) => e.id == 'drop').latlng.longitude,
           'ride_type': 1
         }));
-
+print(response.statusCode.toString());
     if (response.statusCode == 200) {
       etaDetails = jsonDecode(response.body)['data'];
       result = true;
@@ -1859,7 +1860,9 @@ requestAccept() async {
           'Content-Type': 'application/json'
         },
         body: jsonEncode({'request_id': driverReq['id'], 'is_accept': 1}));
-
+    print(response.statusCode.toString());
+    print(response.body.toString()); print(response.statusCode.toString());
+    print(response.body.toString());
     if (response.statusCode == 200) {
       if (jsonDecode(response.body)['message'] == 'success') {
         audioPlayers.stop();
@@ -2059,6 +2062,8 @@ openMap(lat, lng) async {
 //trip start with otp
 
 tripStart() async {
+  print("sssddd");
+
   dynamic result;
   try {
     var response = await http.post(Uri.parse('${url}api/v1/request/started'),
@@ -2098,6 +2103,8 @@ tripStart() async {
 //trip start without otp
 
 tripStartDispatcher() async {
+  print("sdddss");
+
   dynamic result;
   try {
     var response = await http.post(Uri.parse('${url}api/v1/request/started'),
@@ -2158,6 +2165,7 @@ geoCoding(double lat, double lng) async {
 //ending trip
 
 endTrip() async {
+  print("sss");
   dynamic result;
   try {
     await requestDetailsUpdate(
@@ -2208,6 +2216,7 @@ endTrip() async {
               ? (waitingAfterTime / 60).toInt()
               : 0
         }));
+
     if (response.statusCode == 200) {
       await getUserDetails();
       FirebaseDatabase.instance
@@ -4135,6 +4144,8 @@ addHomeAddress(lat, lng, add) async {
           'my_route_lng': lng,
           'my_route_address': add
         }));
+
+    print(response.statusCode.toString());
     if (response.statusCode == 200) {
       await getUserDetails();
       result = 'success';

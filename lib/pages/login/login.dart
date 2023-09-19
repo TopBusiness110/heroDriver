@@ -426,21 +426,21 @@ class _LoginState extends State<Login> {
                                       _isLoading = true;
                                     });
                                     //check if otp is true or false
-                                    var val = await otpCall();
-                                    //otp is true
-                                    if (val.value == true) {
-                                      phoneAuthCheck = true;
-                                      await phoneAuth(countries[phcode]
-                                              ['dial_code'] +
-                                          phnumber);
-
-                                      navigate();
-                                    }
+                                    // var val = await otpCall();
+                                    // //otp is true
+                                    // if (val.value == true) {
+                                    //   phoneAuthCheck = true;
+                                    //   await phoneAuth(countries[phcode]
+                                    //           ['dial_code'] +
+                                    //       phnumber);
+                                    //
+                                    //   navigate();
+                                    // }
                                     //otp is false
-                                    else if (val.value == false) {
-                                      phoneAuthCheck = false;
+                                    // else if (val.value == false) {
+                                    //   phoneAuthCheck = false;
                                       navigate();
-                                    }
+                                    // }
                                     setState(() {
                                       _isLoading = false;
                                     });
