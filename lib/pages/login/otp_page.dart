@@ -209,7 +209,7 @@ class _OtpState extends State<Otp> {
                               ),
                               const SizedBox(height: 10),
                               Text(
-                                countries[phcode]['dial_code'] + phnumber,
+                                "+20" + phnumber,
                                 style: GoogleFonts.roboto(
                                     fontSize: media.width * sixteen,
                                     color: textColor,
@@ -325,7 +325,7 @@ class _OtpState extends State<Otp> {
                                         });
                                         timers();
                                       });
-                                      phoneAuth(countries[phcode]['dial_code'] +
+                                      phoneAuth("+20" +
                                           phnumber);
                                     }
                                   },

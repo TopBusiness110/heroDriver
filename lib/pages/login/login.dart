@@ -313,8 +313,8 @@ class _LoginState extends State<Login> {
                                           ?.unfocus();
                                     }
                                   },
-                                  maxLength: countries[phcode]
-                                      ['dial_max_length'],
+                                  // maxLength: countries[phcode]
+                                  //     ['dial_max_length'],
                                   style: GoogleFonts.roboto(
                                       fontSize: media.width * sixteen,
                                       color: textColor,

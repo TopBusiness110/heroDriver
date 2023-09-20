@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:herodriver/functions/functions.dart';
 import 'package:herodriver/pages/login/signupmethod.dart';
 import 'package:herodriver/pages/noInternet/nointernet.dart';
+import 'package:herodriver/pages/vehicleInformations/vehicle_color.dart';
 import 'package:herodriver/pages/vehicleInformations/vehicle_number.dart';
 import 'package:herodriver/styles/styles.dart';
 import 'package:herodriver/translation/translation.dart';
@@ -136,7 +137,7 @@ class _VehicleYearState extends State<VehicleYear> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const VehicleNumber()));
+                                                    const VehicleColor()));
                                       },
                                       text: languages[choosenLanguage]
                                           ['text_next'])

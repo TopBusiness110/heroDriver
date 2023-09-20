@@ -157,68 +157,67 @@ var choosenLanguage = '';
 var languageDirection = '';
 
 List languagesCode = [
-  {'name': 'Amharic', 'code': 'am'},
+
   {'name': 'Arabic', 'code': 'ar'},
-  {'name': 'Basque', 'code': 'eu'},
-  {'name': 'Bengali', 'code': 'bn'},
-  {'name': 'English (UK)', 'code': 'en-GB'},
-  {'name': 'Portuguese (Brazil)', 'code': 'pt-BR'},
-  {'name': 'Bulgarian', 'code': 'bg'},
-  {'name': 'Catalan', 'code': 'ca'},
-  {'name': 'Cherokee', 'code': 'chr'},
-  {'name': 'Croatian', 'code': 'hr'},
-  {'name': 'Czech', 'code': 'cs'},
-  {'name': 'Danish', 'code': 'da'},
-  {'name': 'Dutch', 'code': 'nl'},
+
+ // {'name': 'English (UK)', 'code': 'en-GB'},
+  // {'name': 'Portuguese (Brazil)', 'code': 'pt-BR'},
+  // {'name': 'Bulgarian', 'code': 'bg'},
+  // {'name': 'Catalan', 'code': 'ca'},
+  // {'name': 'Cherokee', 'code': 'chr'},
+  // {'name': 'Croatian', 'code': 'hr'},
+  // {'name': 'Czech', 'code': 'cs'},
+  // {'name': 'Danish', 'code': 'da'},
+  // {'name': 'Dutch', 'code': 'nl'},
   {'name': 'English (US)', 'code': 'en'},
-  {'name': 'Estonian', 'code': 'et'},
-  {'name': 'Filipino', 'code': 'fil'},
-  {'name': 'Finnish', 'code': 'fi'},
-  {'name': 'French', 'code': 'fr'},
-  {'name': 'German', 'code': 'de'},
-  {'name': 'Greek', 'code': 'el'},
-  {'name': 'Gujarati', 'code': 'gu'},
-  {'name': 'Hebrew', 'code': 'iw'},
-  {'name': 'Hindi', 'code': 'hi'},
-  {'name': 'Hungarian', 'code': 'hu'},
-  {'name': 'Icelandic', 'code': 'is'},
-  {'name': 'Indonesian', 'code': 'id'},
-  {'name': 'Italian', 'code': 'it'},
-  {'name': 'Japanese', 'code': 'ja'},
-  {'name': 'Kannada', 'code': 'kn'},
-  {'name': 'Korean', 'code': 'ko'},
-  {'name': 'Latvian', 'code': 'lv'},
-  {'name': 'Lithuanian', 'code': 'lt'},
-  {'name': 'Malay', 'code': 'ms'},
-  {'name': 'Malayalam', 'code': 'ml'},
-  {'name': 'Marathi', 'code': 'mr'},
-  {'name': 'Norwegian', 'code': 'no'},
-  {'name': 'Polish', 'code': 'pl'},
-  {
-    'name': 'Portuguese (Portugal)',
-    'code': 'pt' //pt-PT
-  },
-  {'name': 'Romanian', 'code': 'ro'},
-  {'name': 'Russian', 'code': 'ru'},
-  {'name': 'Serbian', 'code': 'sr'},
-  {
-    'name': 'Chinese (PRC)',
-    'code': 'zh' //zh-CN
-  },
-  {'name': 'Slovak', 'code': 'sk'},
-  {'name': 'Slovenian', 'code': 'sl'},
-  {'name': 'Spanish', 'code': 'es'},
-  {'name': 'Swahili', 'code': 'sw'},
-  {'name': 'Swedish', 'code': 'sv'},
-  {'name': 'Tamil', 'code': 'ta'},
-  {'name': 'Telugu', 'code': 'te'},
-  {'name': 'Thai', 'code': 'th'},
-  {'name': 'Chinese (Taiwan)', 'code': 'zh-TW'},
-  {'name': 'Turkish', 'code': 'tr'},
-  {'name': 'Urdu', 'code': 'ur'},
-  {'name': 'Ukrainian', 'code': 'uk'},
-  {'name': 'Vietnamese', 'code': 'vi'},
-  {'name': 'Welsh', 'code': 'cy'},
+  // {'name': 'Estonian', 'code': 'et'},
+  // {'name': 'Filipino', 'code': 'fil'},
+  // {'name': 'Finnish', 'code': 'fi'},
+  // {'name': 'French', 'code': 'fr'},
+  // {'name': 'German', 'code': 'de'},
+  // {'name': 'Greek', 'code': 'el'},
+  // {'name': 'Gujarati', 'code': 'gu'},
+  // {'name': 'Hebrew', 'code': 'iw'},
+  // {'name': 'Hindi', 'code': 'hi'},
+  // {'name': 'Hungarian', 'code': 'hu'},
+  // {'name': 'Icelandic', 'code': 'is'},
+  // {'name': 'Indonesian', 'code': 'id'},
+  // {'name': 'Italian', 'code': 'it'},
+  // {'name': 'Japanese', 'code': 'ja'},
+  // {'name': 'Kannada', 'code': 'kn'},
+  // {'name': 'Korean', 'code': 'ko'},
+  // {'name': 'Latvian', 'code': 'lv'},
+  // {'name': 'Lithuanian', 'code': 'lt'},
+  // {'name': 'Malay', 'code': 'ms'},
+  // {'name': 'Malayalam', 'code': 'ml'},
+  // {'name': 'Marathi', 'code': 'mr'},
+  // {'name': 'Norwegian', 'code': 'no'},
+  // {'name': 'Polish', 'code': 'pl'},
+  // {
+  //   'name': 'Portuguese (Portugal)',
+  //   'code': 'pt' //pt-PT
+  // },
+  // {'name': 'Romanian', 'code': 'ro'},
+  // {'name': 'Russian', 'code': 'ru'},
+  // {'name': 'Serbian', 'code': 'sr'},
+  // {
+  //   'name': 'Chinese (PRC)',
+  //   'code': 'zh' //zh-CN
+  // },
+  // {'name': 'Slovak', 'code': 'sk'},
+  // {'name': 'Slovenian', 'code': 'sl'},
+  // {'name': 'Spanish', 'code': 'es'},
+  // {'name': 'Swahili', 'code': 'sw'},
+  // {'name': 'Swedish', 'code': 'sv'},
+  // {'name': 'Tamil', 'code': 'ta'},
+  // {'name': 'Telugu', 'code': 'te'},
+  // {'name': 'Thai', 'code': 'th'},
+  // {'name': 'Chinese (Taiwan)', 'code': 'zh-TW'},
+  // {'name': 'Turkish', 'code': 'tr'},
+  // {'name': 'Urdu', 'code': 'ur'},
+  // {'name': 'Ukrainian', 'code': 'uk'},
+  // {'name': 'Vietnamese', 'code': 'vi'},
+  // {'name': 'Welsh', 'code': 'cy'},
 ];
 
 //upload docs
@@ -561,6 +560,7 @@ List<BearerClass> bearerToken = <BearerClass>[];
 
 registerDriver() async {
   print("jjj");
+  print("EG");
   bearerToken.clear();
   dynamic result;
   try {
@@ -579,14 +579,14 @@ registerDriver() async {
       "mobile": phnumber,
       "email": email,
       "device_token": fcm,
-      "country": countries[phcode]['code'],
+      "country": "EG",
       "service_location_id": myServiceId.toString(),
       "login_by": (platform == Platform.isAndroid) ? 'android' : 'ios',
-      "vehicle_type": myVehicleId.toString(),
-      "car_make": vehicleMakeId.toString(),
-      "car_model": vehicleModelId.toString(),
+      "vehicle_type": myVehicleType,
+    //  "car_make": vehicleMakeId.toString(),
+      "car_model":myVehicleModel,
       "car_color": vehicleColor,
-      "car_number": vehicleNumber,
+     // "car_number": vehicleNumber,
       "vehicle_year": modelYear,
       'lang': choosenLanguage,
     });
@@ -628,6 +628,8 @@ print(request.statusCode);
       result = jsonDecode(respon.body)['message'];
     }
   } catch (e) {
+    print(e);
+
     if (e is SocketException) {
       internet = false;
       result = 'no internet';
@@ -831,7 +833,7 @@ registerOwner() async {
       "tax_number": taxNumber,
       "company_name": companyName,
       "device_token": fcm,
-      "country": countries[phcode]['code'],
+      "country": "EG",
       "service_location_id": ownerServiceLocation,
       "login_by": (platform == Platform.isAndroid) ? 'android' : 'ios',
       'lang': choosenLanguage,
@@ -1225,6 +1227,7 @@ getUserDetails() async {
     print("llll");
     print(bearerToken[0].token);
     print(response.body.toString());
+    print(jsonDecode(response.body)['data']['accepted_at']);
     if (response.statusCode == 200) {
       userDetails = jsonDecode(response.body)['data'];
       if (userDetails['notifications_count'] != 0 &&
@@ -1256,6 +1259,7 @@ getUserDetails() async {
               driverReq['is_rental'] != true) {
          //   waitingAfterStart();
           }
+          print(driverReq['accepted_at']);
 
           if (driverReq['accepted_at'] != null) {
             getCurrentMessages();
@@ -1713,8 +1717,14 @@ etaRequest() async {
           'ride_type': 1
         }));
 print(response.statusCode.toString());
+print(response.body.toString());
     if (response.statusCode == 200) {
+      print("ppp");
+      print(jsonDecode(response.body)['data']);
+
       etaDetails = jsonDecode(response.body)['data'];
+      print(jsonDecode(response.body)['data']);
+
       result = true;
       valueNotifierHome.incrementNotifier();
     } else if (response.statusCode == 401) {
@@ -2753,11 +2763,11 @@ updateVehicle() async {
             body: jsonEncode({
               "service_location_id": myServiceId,
               "is_company_driver": false,
-              "vehicle_type": myVehicleId,
-              "car_make": vehicleMakeId,
-              "car_model": vehicleModelId,
+              "vehicle_type": myVehicleType,
+              //"car_make": vehicleMakeId,
+              "car_model": myVehicleModel,
               "car_color": vehicleColor,
-              "car_number": vehicleNumber,
+             // "car_number": vehicleNumber,
               "vehicle_year": modelYear
             }));
 

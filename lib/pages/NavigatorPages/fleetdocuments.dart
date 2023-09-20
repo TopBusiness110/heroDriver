@@ -444,9 +444,10 @@ class _UploadDocsState extends State<UploadDocs> {
 
 //get gallery permission
   getGalleryPermission() async {
-    var status = await Permission.photos.status;
+    var status = await Permission.storage .status;
+    print(status);
     if (status != PermissionStatus.granted) {
-      status = await Permission.photos.request();
+      status = await Permission.storage .request();
     }
     return status;
   }

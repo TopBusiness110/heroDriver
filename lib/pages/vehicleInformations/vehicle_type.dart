@@ -3,6 +3,7 @@ import 'package:herodriver/functions/functions.dart';
 import 'package:herodriver/pages/loadingPage/loading.dart';
 import 'package:herodriver/pages/noInternet/nointernet.dart';
 import 'package:herodriver/pages/vehicleInformations/vehicle_make.dart';
+import 'package:herodriver/pages/vehicleInformations/vehicle_model.dart';
 import 'package:herodriver/styles/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:herodriver/translation/translation.dart';
@@ -18,9 +19,13 @@ class VehicleType extends StatefulWidget {
 dynamic myVehicalType;
 dynamic myVehicleId;
 dynamic myVehicleIconFor;
+dynamic myVehicleType;
 
 class _VehicleTypeState extends State<VehicleType> {
   bool _loaded = false;
+  TextEditingController controller = TextEditingController();
+
+  String dateError = '';
 
   @override
   void initState() {
@@ -32,6 +37,7 @@ class _VehicleTypeState extends State<VehicleType> {
   getvehicle() async {
     myVehicalType = '';
     myVehicleId = '';
+    myVehicleType='';
     myVehicleIconFor = '';
     await getvehicleType();
     if (mounted) {
@@ -87,78 +93,20 @@ class _VehicleTypeState extends State<VehicleType> {
                             fontWeight: FontWeight.bold),
                       )),
                   const SizedBox(height: 10),
-                  (_loaded != false && vehicleType.isNotEmpty)
-                      ? Expanded(
-                          child: SingleChildScrollView(
-                          child: Column(
-                            children: vehicleType
-                                .asMap()
-                                .map((i, value) => MapEntry(
-                                    i,
-                                    Container(
-                                      padding: const EdgeInsets.only(
-                                          top: 5, bottom: 5),
-                                      width: media.width * 1,
-                                      alignment: Alignment.centerLeft,
-                                      child: InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            myVehicleId = vehicleType[i]['id'];
-                                            myVehicleIconFor = vehicleType[i]
-                                                ['icon_types_for'];
-                                          });
-                                        },
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                (vehicleType[i]['icon'] != null)
-                                                    ? SizedBox(
-                                                        width:
-                                                            media.width * 0.133,
-                                                        height:
-                                                            media.width * 0.133,
-                                                        child: Image.network(
-                                                          vehicleType[i]
-                                                              ['icon'],
-                                                          fit: BoxFit.contain,
-                                                        ),
-                                                      )
-                                                    : SizedBox(
-                                                        height:
-                                                            media.width * 0.133,
-                                                        width:
-                                                            media.width * 0.133,
-                                                      ),
-                                                const SizedBox(width: 10),
-                                                Text(
-                                                  vehicleType[i]['name'],
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize:
-                                                          media.width * twenty,
-                                                      color: textColor),
-                                                ),
-                                              ],
-                                            ),
-                                            (myVehicleId ==
-                                                    vehicleType[i]['id'])
-                                                ? Icon(
-                                                    Icons.done,
-                                                    color: buttonColor,
-                                                  )
-                                                : Container()
-                                          ],
-                                        ),
-                                      ),
-                                    )))
-                                .values
-                                .toList(),
-                          ),
-                        ))
-                      : Container(),
-                  (myVehicleId != '')
+                  InputField(
+                    text: languages[choosenLanguage]
+                    ['text_enter_vehicle_type'],
+                    textController: controller,
+                    onTap: (val) {
+                      setState(() {
+                        myVehicleType = controller.text;
+                      });}
+                  ,
+                    color: (dateError == '') ? null : Colors.red,
+                    inputType: TextInputType.text,
+                  ),
+
+                  (myVehicleType != '')
                       ? Container(
                           padding: const EdgeInsets.only(top: 10, bottom: 10),
                           child: Button(
@@ -167,7 +115,7 @@ class _VehicleTypeState extends State<VehicleType> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const VehicleMake()));
+                                            const VehicleModel()));
                               },
                               text: languages[choosenLanguage]['text_next']),
                         )

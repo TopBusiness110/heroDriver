@@ -4927,7 +4927,7 @@ class _MapsState extends State<Maps>
                                       children: [
                                         Container(
                                           width: media.width * 0.55,
-                                          height: media.width * 0.12,
+                                          height: media.width * 0.25,
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(10),
@@ -4935,7 +4935,7 @@ class _MapsState extends State<Maps>
                                           child: Row(
                                             children: [
                                               Container(
-                                                height: media.width * 0.12,
+                                                height: media.width * 0.25,
                                                 width: media.width * 0.12,
                                                 decoration: BoxDecoration(
                                                     borderRadius: (languageDirection ==

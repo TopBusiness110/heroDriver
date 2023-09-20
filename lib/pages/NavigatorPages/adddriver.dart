@@ -360,7 +360,7 @@ class _AddDriverState extends State<AddDriver> {
                                               width: media.width * 0.02,
                                             ),
                                             Text(
-                                              countries[phcode]['dial_code']
+                                              "+20"
                                                   .toString(),
                                               style: GoogleFonts.roboto(
                                                   fontSize:

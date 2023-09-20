@@ -96,22 +96,22 @@ class _UpdateVehicleState extends State<UpdateVehicle> {
                             SizedBox(
                               height: media.width * 0.05,
                             ),
-                            Text(
-                              languages[choosenLanguage]['text_make'],
-                              style: GoogleFonts.roboto(
-                                  fontSize: media.width * sixteen,
-                                  color: hintColor),
-                            ),
-                            SizedBox(
-                              height: media.width * 0.025,
-                            ),
-                            Text(
-                              userDetails['car_make_name'],
-                              style: GoogleFonts.roboto(
-                                  fontSize: media.width * sixteen,
-                                  color: textColor,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                            // Text(
+                            //   languages[choosenLanguage]['text_make'],
+                            //   style: GoogleFonts.roboto(
+                            //       fontSize: media.width * sixteen,
+                            //       color: hintColor),
+                            // ),
+                            // SizedBox(
+                            //   height: media.width * 0.025,
+                            // ),
+                            // Text(
+                            //   userDetails['car_make_name'],
+                            //   style: GoogleFonts.roboto(
+                            //       fontSize: media.width * sixteen,
+                            //       color: textColor,
+                            //       fontWeight: FontWeight.w600),
+                            // ),
                             SizedBox(
                               height: media.width * 0.05,
                             ),
@@ -134,22 +134,22 @@ class _UpdateVehicleState extends State<UpdateVehicle> {
                             SizedBox(
                               height: media.width * 0.05,
                             ),
-                            Text(
-                              languages[choosenLanguage]['text_number'],
-                              style: GoogleFonts.roboto(
-                                  fontSize: media.width * sixteen,
-                                  color: hintColor),
-                            ),
-                            SizedBox(
-                              height: media.width * 0.025,
-                            ),
-                            Text(
-                              userDetails['car_number'],
-                              style: GoogleFonts.roboto(
-                                  fontSize: media.width * sixteen,
-                                  color: textColor,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                            // Text(
+                            //   languages[choosenLanguage]['text_number'],
+                            //   style: GoogleFonts.roboto(
+                            //       fontSize: media.width * sixteen,
+                            //       color: hintColor),
+                            // ),
+                            // SizedBox(
+                            //   height: media.width * 0.025,
+                            // ),
+                            // Text(
+                            //   userDetails['car_number'],
+                            //   style: GoogleFonts.roboto(
+                            //       fontSize: media.width * sixteen,
+                            //       color: textColor,
+                            //       fontWeight: FontWeight.w600),
+                            // ),
                             SizedBox(
                               height: media.width * 0.05,
                             ),

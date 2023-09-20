@@ -17,10 +17,13 @@ class VehicleModel extends StatefulWidget {
 
 dynamic vehicleModelId;
 dynamic vehicleModelName;
+dynamic myVehicleModel;
 
 class _VehicleModelState extends State<VehicleModel> {
   bool _loaded = false;
+  TextEditingController controller = TextEditingController();
 
+  String dateError = '';
   @override
   void initState() {
     getVehicleMod();
@@ -32,6 +35,7 @@ class _VehicleModelState extends State<VehicleModel> {
   getVehicleMod() async {
     vehicleModelId = '';
     vehicleModelName = '';
+    myVehicleModel='';
     await getVehicleModel();
     if (mounted) {
       setState(() {
@@ -88,55 +92,20 @@ class _VehicleModelState extends State<VehicleModel> {
                   const SizedBox(
                     height: 10,
                   ),
-                  (_loaded != false && vehicleModel.isNotEmpty)
-                      ? Expanded(
-                          child: SingleChildScrollView(
-                          physics: const BouncingScrollPhysics(),
-                          child: Column(
-                            children: vehicleModel
-                                .asMap()
-                                .map((i, value) => MapEntry(
-                                    i,
-                                    Container(
-                                      padding: const EdgeInsets.only(
-                                          top: 10, bottom: 10),
-                                      width: media.width * 1,
-                                      alignment: Alignment.centerLeft,
-                                      child: InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            vehicleModelId =
-                                                vehicleModel[i]['id'];
-                                          });
-                                        },
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              vehicleModel[i]['name'],
-                                              style: GoogleFonts.roboto(
-                                                  fontSize:
-                                                      media.width * twenty,
-                                                  color: textColor),
-                                            ),
-                                            (vehicleModelId ==
-                                                    vehicleModel[i]['id'])
-                                                ? Icon(
-                                                    Icons.done,
-                                                    color: buttonColor,
-                                                  )
-                                                : Container()
-                                          ],
-                                        ),
-                                      ),
-                                    )))
-                                .values
-                                .toList(),
-                          ),
-                        ))
-                      : Container(),
-                  (vehicleModelId != '')
+                  InputField(
+                    text: languages[choosenLanguage]
+                    ['text_enter_vehicle_model'],
+                    textController: controller,
+                    onTap: (val) {
+                      setState(() {
+                        myVehicleModel = controller.text;
+                      });}
+                    ,
+                    color: (dateError == '') ? null : Colors.red,
+                    inputType: TextInputType.text,
+                  ),
+
+                  (myVehicleModel != '')
                       ? Container(
                           padding: const EdgeInsets.only(top: 10, bottom: 10),
                           child: Button(

@@ -64,9 +64,9 @@ class _OwnersRegisterState extends State<OwnersRegister> {
   }
 
   getGalleryPermission() async {
-    var status = await Permission.photos.status;
+    var status = await Permission.storage .status;
     if (status != PermissionStatus.granted) {
-      status = await Permission.photos.request();
+      status = await Permission.storage .request();
     }
     return status;
   }
@@ -435,7 +435,7 @@ class _OwnersRegisterState extends State<OwnersRegister> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                          countries[phcode]['dial_code'],
+                                          "+20",
                                           style: GoogleFonts.roboto(
                                               fontSize: media.width * sixteen,
                                               color: textColor),

@@ -236,6 +236,7 @@ class _LoadingPageState extends State<LoadingPage> {
                           child: Image.asset(
                             'assets/images/logo.png',
                             fit: BoxFit.contain,
+                            color: Colors.red,
                           ),
                         ),
                         SizedBox(
